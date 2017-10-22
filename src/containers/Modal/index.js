@@ -10,10 +10,12 @@ const Wrapper = styled.div`
   border: 1px solid #e6ecf5;
   margin-bottom: 15px;
   margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
 `;
 
-const BlockTitle = styled.div`
+const ModalTitle = styled.div`
   padding: 23px 25px 18px;
   line-height: 1;
   border-bottom: 1px solid #e6ecf5;
@@ -31,40 +33,66 @@ const BlockTitle = styled.div`
   }
 `;
 
+const ModalFormWrapper = styled.div`
+    padding: 24px 23px 23px;
+`;
 
+const ModalFormElement = styled.div`
+    margin-bottom: 25px;
+    position: relative;
+    display: block;
+`;
+
+const ModalFormLabel = styled.label`
+    top: 10px;
+    font-size: 11px;
+    line-height: 1.07;
+    position: absolute;
+    left: 20px;
+    color: #888da8;
+`;
+
+const ModalFormInput = styled.input`
+    padding: 20.8px 17.6px 6.4px;
+    line-height: 1;
+    color: #515365;
+    font-size: 14px;
+    background-color: transparent;
+    
+`;
 
 class Modal extends React.Component {
     render() {
         return (
             <Wrapper class="modal fade show">
                 <div>
-                    <BlockTitle>
+                    <ModalTitle>
                         <h6>Title</h6>
-                    </BlockTitle>
-                    <div>
+                    </ModalTitle>
+                    <ModalFormWrapper>
                         <form action="/">
                             <div className="row">
                                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div>
-                                        <label>First Name</label>
-                                        <input type="text"/>
-                                    </div>
+                                    <ModalFormElement>
+                                        <ModalFormLabel>First Name</ModalFormLabel>
+                                        <ModalFormInput className="form-control" type="text"/>
+                                    </ModalFormElement>
                                 </div>
                                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div>
-                                        <label>First Name</label>
-                                        <input type="text"/>
-                                    </div>
+                                    <ModalFormElement>
+                                        <ModalFormLabel>First Name</ModalFormLabel>
+                                        <ModalFormInput className="form-control" type="text"/>
+                                    </ModalFormElement>
                                 </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div>
-                                        <label>Email</label>
-                                        <input type="email"/>
-                                    </div>
+                                    <ModalFormElement>
+                                        <ModalFormLabel>Email</ModalFormLabel>
+                                        <ModalFormInput className="form-control" type="email"/>
+                                    </ModalFormElement>
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </ModalFormWrapper>
                 </div>
 
             </Wrapper>
