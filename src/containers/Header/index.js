@@ -1,12 +1,7 @@
 import React from 'react';
-import connect from 'react-redux';
 import styled from 'styled-components';
 
-const mapStateToProps = (state) => (
-    {
-    user: state.user,
-    }
-)
+import UserMenu from '../UserMenu';
 
 const Wrapper = styled.div`
     background-color: #3f4257;
@@ -52,12 +47,7 @@ class Header extends React.Component {
                 <HeaderTitle className="navbar-header">
                     <a href="/">Header</a>
                 </HeaderTitle>
-                <div>
-                    <ul className="nav navbar-nav navbar-right">
-                        <li><a href="/" ><span className="glyphicon glyphicon-user" />Sign Up</a></li>
-                        <li><a href="/"><span className="glyphicon glyphicon-log-in" />Login</a></li>
-                    </ul>
-                </div>
+                <UserMenu />
             </div>
         </Wrapper>
         )

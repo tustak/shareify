@@ -1,15 +1,22 @@
+
 const userReducer = (state = {
-    name: "",
+    user: "asd",
+    name: "Andres",
     age: 0,
+    login: {
+        showLoginModal: false,
+        loginModalUser: '',
+        loginModalPassword: '',
+    }
     }, action) => {
     switch(action.type) {
-        case 'FETCH_USER':
+        case 'FETCH_USER_FULFILLED':
             return Object.assign({}, state, {
                 name: "Andres",
                 age: 30
             });
         default:
-            return null;
+            return state;
     }
 };
 
