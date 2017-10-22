@@ -1,18 +1,17 @@
 
-import { createStore } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
+import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
 
 import reducer from './reducers/index';
 
 export default function configureStores(initialState = {}, history) {
-    const middleware = [
-        routerMiddleware(history),
-    ];
 
     const store = createStore(
-        reducer
-    )
+        reducer,
+        applyMiddleware(promise(), thunk, logger)
+    );
 
     return store;
 }

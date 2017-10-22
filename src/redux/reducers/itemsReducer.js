@@ -1,13 +1,11 @@
 
 const itemsReducer = (state = {
-    items: {},
-    name: 'Andres',
-    age: 30
+    list: {},
     }, action) => {
     switch (action.type) {
-        case 'SEARCH_ITEM':
+        case 'SEARCH_ITEM_FULFILLED':
             return Object.assign({}, state, {
-                items: action.payload,
+                list: action.payload,
             });
         default:
             return state;

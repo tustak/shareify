@@ -5,14 +5,11 @@ const BASE_URL = 'http://localhost:3333';
 
 const SEARCH_ITEM = 'SEARCH_ITEM';
 
-function getItemData(query, distance) {
+export function searchItem(query, distance) {
     const url = `${BASE_URL}/api/items/${query}/${distance}`;
-    return axios.get(url).then((response) => response.data);
-}
-
-export function searchItem(item) {
+    console.log(url);
     return {
         type: SEARCH_ITEM,
-        payload: getItemData(item, 3),
+        payload: axios.get(url),
     }
 }
