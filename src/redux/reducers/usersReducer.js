@@ -5,15 +5,8 @@ const userReducer = (state = {
     switch(action.type) {
         case 'FETCH_USER_FULFILLED':
             return Object.assign({}, state, {
-                user: {
-                    username: "andresmechali",
-                    firstName: "Andres",
-                    lastName: "Mechali",
-                    email: "andresmechali@gmail.com",
-                    age: 30,
-                    description: "The first user!",
-                    points: 48,
-                }
+                user: action.payload,
+
             });
         default:
             return state;
