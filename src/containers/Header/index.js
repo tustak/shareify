@@ -10,13 +10,15 @@ const Wrapper = styled.div`
     background-color: #3f4257;
     color: white;
     width:100%;
-    height: auto;
+    height: 60px;
     padding: 0 10px;
     position: fixed;
     margin: 0px;
     z-index: 1;
-    opacity: 0.9;
-    position: fixed;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 70px;
+    padding-left: 70px;
     * > li > a {
         color: white;
         :hover {
@@ -27,12 +29,11 @@ const Wrapper = styled.div`
 
 const HeaderTitle = styled.div`
     font-family: 'Ubuntu Condensed', sans-serif;
-    padding: 0px;
     margin: 0px;
     text-decoration: none;
     color: white;
     font-size: 25px;
-    padding: 5px 30px;
+    padding-top: 3px;
     > a {
         color: white;
         :hover {
@@ -41,6 +42,7 @@ const HeaderTitle = styled.div`
         }
     }
 `
+
 
 const mapStateToProps = (state) => {
     return {

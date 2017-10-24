@@ -7,6 +7,9 @@ import { fetchUser } from "../../redux/actions/userActions";
 
 const Li = styled.li`
     cursor: pointer;
+    * > a {
+        line-height: 30px;
+    }
 `;
 
 const mapStateToProps = (state) => {
