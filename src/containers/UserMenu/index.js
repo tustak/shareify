@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import UserMenuNoUser from "../UserMenuNoUser/index";
+
 const Wrapper = styled.div`
     background-color: red;
 `;
@@ -22,10 +24,7 @@ class UserMenu extends React.Component {
                         </ul>;
         }
         else {
-            userMenu = <ul className="nav navbar-nav navbar-right">
-                            <li><a href="/" ><span className="glyphicon glyphicon-user" />Sign Up</a></li>
-                            <li><a href="/"><span className="glyphicon glyphicon-log-in" />Login</a></li>
-                        </ul>;
+            return <UserMenuNoUser/>
         }
         return(
             <Wrapper>

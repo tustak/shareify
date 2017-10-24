@@ -1,7 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import UserMenu from '../UserMenu';
+import Modal from '../Modals';
+import ModalForm from '../Modals';
+import ModalFormElement from '../Modals';
 
 const Wrapper = styled.div`
     background-color: #3f4257;
@@ -37,21 +41,40 @@ const HeaderTitle = styled.div`
             text-decoration: none;
         }
     }
-`;
+`
+
+const mapStateToProps = (state) => {
+    return {
+        ui: state.ui,
+    }
+}
 
 class Header extends React.Component {
     render() {
         return(
-        <Wrapper>
-            <div className="container-fluid">
-                <HeaderTitle className="navbar-header">
-                    <a href="/">Header</a>
-                </HeaderTitle>
-                <UserMenu />
+            <div>
+                <Modal title="Register" show={this.props.ui.modals.register.display}>
+                    <ModalForm>
+                        <ModalFormElement size="small" label="First name" type="text" />
+                        <ModalFormElement size="small" label="Last name" type="text"/>
+                        <ModalFormElement size="large" label="Email" type="email" />
+                        <ModalFormElement size="large" label="Password" type="password" />
+                        <ModalFormElement size="large" label="Repeat password" type="password" />
+                    </ModalForm>
+                </Modal>
+                <Wrapper>
+                    <div className="container-fluid">
+                        <HeaderTitle className="navbar-header">
+                            <a href="/">Header</a>
+                        </HeaderTitle>
+                        <UserMenu />
+                    </div>
+                </Wrapper>
             </div>
-        </Wrapper>
         )
     }
 }
+
+Header = connect(mapStateToProps)(Header);
 
 export default Header;
