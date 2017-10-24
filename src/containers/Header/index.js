@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import UserMenu from '../UserMenu';
-import Modal from '../Modals';
-import ModalForm from '../Modals';
-import ModalFormElement from '../Modals';
+import RegisterModal from '../Modals/RegisterModal';
+
 
 const Wrapper = styled.div`
     background-color: #3f4257;
@@ -53,15 +52,7 @@ class Header extends React.Component {
     render() {
         return(
             <div>
-                <Modal title="Register" show={this.props.ui.modals.register.display}>
-                    <ModalForm>
-                        <ModalFormElement size="small" label="First name" type="text" />
-                        <ModalFormElement size="small" label="Last name" type="text"/>
-                        <ModalFormElement size="large" label="Email" type="email" />
-                        <ModalFormElement size="large" label="Password" type="password" />
-                        <ModalFormElement size="large" label="Repeat password" type="password" />
-                    </ModalForm>
-                </Modal>
+                <RegisterModal show={this.props.ui.modals.register.display} />
                 <Wrapper>
                     <div className="container-fluid">
                         <HeaderTitle className="navbar-header">

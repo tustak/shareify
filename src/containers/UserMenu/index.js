@@ -17,6 +17,7 @@ const mapStateToProps = (state) => (
 class UserMenu extends React.Component {
     render() {
         const { user } = this.props;
+        console.log(user);
         let userMenu;
         if (!user) {
             userMenu =  <ul className="nav navbar-nav navbar-right">

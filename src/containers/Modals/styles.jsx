@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const Backdrop = styled.div`
@@ -28,14 +27,34 @@ export const Wrapper = styled.div`
     left: calc(50% - 237px);
 `;
 
+export const ModalTitle = styled.div`
+    padding: 23px 25px 18px;
+    line-height: 1;
+    border-bottom: 1px solid #e6ecf5;
+    border-top: 1px solid #e6ecf5;
+    display: table;
+    width: 100%;
+    position: relative;
+    > h6 {
+        color: #515365;
+        margin-bottom: 0;
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 14px;
+        font-weight: bold;
+    };
+`;
+
 export const ModalFormWrapper = styled.div`
     padding: 24px 23px 23px;
 `;
 
 export const ModalFormElementWrapper = styled.div`
-    margin-bottom: 25px;
-    position: relative;
-    display: block;
+    * > input {
+        margin-bottom: 25px;
+        position: relative;
+        display: block;
+    }
 `;
 
 export const ModalFormLabel = styled.label`
