@@ -2,9 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import { Dropdown } from './Dropdown';
+
 const Wrapper = styled.ul`
     cursor: pointer;
     vertical-align: middle;
+    :hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
 `;
 
 const NavBar = styled.ul`
@@ -31,6 +37,7 @@ const UserName = styled.li`
         display: block;
         font-size: 8px;
         color: #9a9fbf;
+        text-transform: uppercase;
     }
 `;
 
@@ -45,7 +52,7 @@ class UserMenuUser extends React.Component {
         const { user } = this.props.user;
         console.log(user.data.firstName);
         return (
-            <Wrapper className="nav navbar-nav navbar-right">
+            <Wrapper className="nav navbar-nav navbar-right" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <li>
                     <Img className="user-image" src={require("../../img/andresmechali.jpg")} alt={user.data.firstName}/>
                 </li>
@@ -57,6 +64,7 @@ class UserMenuUser extends React.Component {
                         {user.data.shortDescription}
                     </span>
                 </UserName>
+                <Dropdown/>
             </Wrapper>
         )
     }

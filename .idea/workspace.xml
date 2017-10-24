@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22397527-4109-4d34-ba8d-85799b367c45" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserMenuUser/Dropdown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Header/index.js" afterPath="$PROJECT_DIR$/src/containers/Header/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/UserMenuNoUser/index.js" afterPath="$PROJECT_DIR$/src/containers/UserMenuNoUser/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/UserMenuUser/Dropdown.js" afterPath="$PROJECT_DIR$/src/containers/UserMenuUser/Dropdown.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/UserMenuUser/index.js" afterPath="$PROJECT_DIR$/src/containers/UserMenuUser/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -110,8 +108,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/UserMenuUser/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="49" column="85" lean-forward="false" selection-start-line="49" selection-start-column="85" selection-end-line="49" selection-end-column="85" />
+            <state relative-caret-position="198">
+              <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -122,9 +120,11 @@
       <file leaf-file-name="Dropdown.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/UserMenuUser/Dropdown.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="180">
+              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,8 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>es2015</find>
-      <find>stage</find>
       <find>babel-loader</find>
       <find>logger</find>
       <find>import logg</find>
@@ -170,6 +168,8 @@
       <find>50px</find>
       <find>contain</find>
       <find>PUBLIC_</find>
+      <find>poin</find>
+      <find>pointer</find>
     </findStrings>
     <replaceStrings>
       <replace>ModalFormWrapper</replace>
@@ -419,12 +419,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508503468220</updated>
       <workItem from="1508503469392" duration="869000" />
-      <workItem from="1508594603733" duration="51933000" />
+      <workItem from="1508594603733" duration="56908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75177000" />
+    <option name="totallyTimeSpent" value="80152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="103" y="84" width="1857" height="1092" extended-state="6" />
@@ -456,7 +456,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -858,8 +860,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/UserMenuUser/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="49" column="85" lean-forward="false" selection-start-line="49" selection-start-column="85" selection-end-line="49" selection-end-column="85" />
+        <state relative-caret-position="198">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -868,9 +870,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/UserMenuUser/Dropdown.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
