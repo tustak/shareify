@@ -9,6 +9,10 @@ const DropdownWrapper = styled.div`
   position: absolute;
   cursor: default;
   right: 40px!important;
+  transition: all 0.3s ease-in-out;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
   
   :before {
     position: absolute;

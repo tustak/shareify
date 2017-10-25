@@ -8,7 +8,8 @@ const Wrapper = styled.ul`
     cursor: pointer;
     vertical-align: middle;
     :hover .dropdown-menu {
-        display: block;
+        visibility: visible;
+        opacity: 1;
         margin-top: 0;
     }
 `;
