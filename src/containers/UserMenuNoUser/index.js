@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { toggleRegisterModal } from '../../redux/actions/uiActions';
+import RegisterModal from '../Modals/RegisterModal';
+import LoginModal from '../Modals/LoginModal';
+
+import { toggleModal } from '../../redux/actions/uiActions';
 import { fetchUser } from "../../redux/actions/userActions";
 
 const Li = styled.li`
@@ -13,16 +16,25 @@ const Li = styled.li`
 `;
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        display: state.ui.modals.register.display,
+        register: state.ui.modals.register,
+        login: state.ui.modals.login,
     }
 };
 
-class UserMenuNoUser extends React.Component {
-    handleToggleRegisterModal() {
-        return this.props.dispatch(toggleRegisterModal());
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onClick: (modal) => {
+            dispatch(toggleModal(modal))
+        }
     }
+}
 
+class UserMenuNoUser extends React.Component {
+    handleToggleModal(modal) {
+        return this.props.onClick(modal);
+    }
     handleFetchUser(userId) {
         return this.props.dispatch(fetchUser(1));
     }
@@ -30,13 +42,15 @@ class UserMenuNoUser extends React.Component {
     render() {
         return (
             <ul className="nav navbar-nav navbar-right">
-                <Li><a onClick={this.handleToggleRegisterModal.bind(this)}><span className="glyphicon glyphicon-user" />Register</a></Li>
-                <Li><a onClick ={this.handleFetchUser.bind(this)}><span className="glyphicon glyphicon-log-in" />Login</a></Li>
+                <RegisterModal show={this.props.register.display} />
+                <LoginModal show={this.props.login.display} />
+                <Li><a onClick={this.handleToggleModal.bind(this, 'register')}><span className="glyphicon glyphicon-user" />Register</a></Li>
+                <Li><a onClick ={this.handleToggleModal.bind(this, 'login')}><span className="glyphicon glyphicon-log-in" />Login</a></Li>
             </ul>
         )
     }
 }
 
-UserMenuNoUser = connect(mapStateToProps)(UserMenuNoUser);
+UserMenuNoUser = connect(mapStateToProps, mapDispatchToProps)(UserMenuNoUser);
 
 export default UserMenuNoUser;

@@ -1,10 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import UserMenu from '../UserMenu';
-import RegisterModal from '../Modals/RegisterModal';
-
 
 const Wrapper = styled.div`
     background-color: #3f4257;
@@ -41,20 +38,12 @@ const HeaderTitle = styled.div`
             text-decoration: none;
         }
     }
-`
-
-
-const mapStateToProps = (state) => {
-    return {
-        ui: state.ui,
-    }
-}
+`;
 
 class Header extends React.Component {
     render() {
         return(
             <div>
-                <RegisterModal show={this.props.ui.modals.register.display} />
                 <Wrapper>
                     <div className="container-fluid">
                         <HeaderTitle className="navbar-header">
@@ -67,7 +56,5 @@ class Header extends React.Component {
         )
     }
 }
-
-Header = connect(mapStateToProps)(Header);
 
 export default Header;

@@ -14,11 +14,6 @@ const Wrapper = styled.ul`
     }
 `;
 
-const NavBar = styled.ul`
-    display: inline-block;
-    vertical-align: middle;
-`;
-
 const Img = styled.img`
     border-radius: 50%;
     height: 40px;

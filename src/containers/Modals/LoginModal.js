@@ -7,18 +7,18 @@ import { Backdrop, Wrapper, ModalFormWrapper, ModalFormElementWrapper, ModalButt
 
 const mapStateToProps = (state) => {
     return {
-        display: state.ui.modals.register.display,
+        display: state.ui.modals.login.display,
     }
 };
 
-class RegisterModal extends React.Component {
+class LoginModal extends React.Component {
     handleToggleModal() {
-        return this.props.dispatch(toggleModal('register'));
+        return this.props.dispatch(toggleModal('login'));
     }
 
     handleKeyPress(event) {
         if (event.key === "Escape") {
-            this.handleToggleRegisterModal();
+            this.handleToggleLoginModal();
         }
     }
 
@@ -31,7 +31,7 @@ class RegisterModal extends React.Component {
                 <Backdrop onKeyDown={this.handleKeyPress.bind(this)}>
                     <Wrapper class="modal fade show">
                         <ModalTitle>
-                            <h6>Register</h6>
+                            <h6>Login</h6>
                             <button type="button" className="close" onClick={this.handleToggleModal.bind(this)} data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -40,41 +40,19 @@ class RegisterModal extends React.Component {
                             <form action="/">
                                 <div className="row">
                                     <ModalFormElementWrapper>
-                                        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <ModalFormLabel>First Name</ModalFormLabel>
-                                            <ModalFormInput id="firstName" className="form-control" type="text"/>
-                                        </div>
-                                    </ModalFormElementWrapper>
-
-                                    <ModalFormElementWrapper>
-                                        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <ModalFormLabel>Last Name</ModalFormLabel>
+                                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <ModalFormLabel>Username</ModalFormLabel>
                                             <ModalFormInput className="form-control" type="text"/>
                                         </div>
                                     </ModalFormElementWrapper>
-
-                                    <ModalFormElementWrapper>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <ModalFormLabel>Email</ModalFormLabel>
-                                            <ModalFormInput className="form-control" type="email"/>
-                                        </div>
-                                    </ModalFormElementWrapper>
-
                                     <ModalFormElementWrapper>
                                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <ModalFormLabel>Password</ModalFormLabel>
                                             <ModalFormInput className="form-control" type="password"/>
                                         </div>
                                     </ModalFormElementWrapper>
-
-                                    <ModalFormElementWrapper>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <ModalFormLabel>Repeat password</ModalFormLabel>
-                                            <ModalFormInput className="form-control" type="password"/>
-                                        </div>
-                                    </ModalFormElementWrapper>
+                                    <ModalButton className="btn btn-primary btn-lg full-width">Login</ModalButton>
                                 </div>
-                                <ModalButton className="btn btn-primary btn-lg full-width">Register</ModalButton>
                             </form>
                         </ModalFormWrapper>
                     </Wrapper>
@@ -84,6 +62,6 @@ class RegisterModal extends React.Component {
     }
 }
 
-RegisterModal = connect(mapStateToProps)(RegisterModal);
+LoginModal = connect(mapStateToProps)(LoginModal);
 
-export default RegisterModal;
+export default LoginModal;

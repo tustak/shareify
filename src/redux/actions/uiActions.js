@@ -1,8 +1,9 @@
 
-const TOGGLE_REGISTER_MODAL = 'TOGGLE_REGISTER_MODAL';
+const TOGGLE_MODAL = 'TOGGLE_MODAL';
 
-export function toggleRegisterModal() {
+export function toggleModal(modal) {
     return {
-        type: TOGGLE_REGISTER_MODAL,
+        type: TOGGLE_MODAL,
+        modal: modal,
     }
 }
