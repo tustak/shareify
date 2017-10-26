@@ -1,23 +1,9 @@
 
-const { fromJS } = require('immutable')
+import initialState from './initialState';
+const { fromJS } = require('immutable');
 
-const uiReducer = (state = {
-    modals: {
-        register: {
-            display: false,
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-        },
-        login: {
-            display: false,
-            username: '',
-            password: '',
-            message: '',
-        }
-    }
-}, action) => {
+const uiReducer =
+    (state = initialState.ui, action) => {
     switch(action.type) {
         case 'TOGGLE_MODAL':
             const allModals = fromJS(state).getIn(['modals']).toJS();

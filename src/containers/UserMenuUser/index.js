@@ -39,25 +39,26 @@ const UserName = styled.li`
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user.user.data.userData
     }
 };
 
 class UserMenuUser extends React.Component {
+
     render() {
-        const { user } = this.props.user;
-        console.log(user.data.firstName);
+        const { user } = this.props;
+        console.log(user);
         return (
             <Wrapper className="nav navbar-nav navbar-right" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <li>
-                    <Img className="user-image" src={require("../../img/andresmechali.jpg")} alt={user.data.firstName}/>
+                    <Img className="user-image" src={require(`../../img/${user.username}.jpg`)} alt={user.username}/>
                 </li>
                 <UserName>
                     <div className="user-name">
-                        {user.data.firstName} {user.data.lastName}
+                        {user.firstName} {user.lastName}
                     </div>
                     <span className="user-short-description">
-                        {user.data.shortDescription}
+                        {user.status}
                     </span>
                 </UserName>
                 <Dropdown/>

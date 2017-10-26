@@ -14,6 +14,10 @@ const DropdownWrapper = styled.div`
   visibility: hidden;
   opacity: 0;
   
+  div:first-of-type {
+    border-top: none;
+  }
+  
   :before {
     position: absolute;
     display: inline-block;
@@ -28,6 +32,7 @@ const DropdownWrapper = styled.div`
   .block-title {
     padding: 10px 25px;
     border-bottom: 1px solid #e6ecf5;
+    border-top: 1px solid #e6ecf5;
     display: table;
     position: relative;
     width: 100%;

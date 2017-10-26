@@ -16,7 +16,6 @@ const Li = styled.li`
 `;
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         register: state.ui.modals.register,
         login: state.ui.modals.login,

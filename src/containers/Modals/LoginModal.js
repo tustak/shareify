@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { toggleModal } from '../../redux/actions/uiActions';
+import { submitLogin } from '../../redux/actions/userActions';
 
 import { Backdrop, Wrapper, ModalFormWrapper, ModalFormElementWrapper, ModalButton, ModalFormInput, ModalFormLabel, ModalTitle} from './styles';
 
@@ -12,6 +13,23 @@ const mapStateToProps = (state) => {
 };
 
 class LoginModal extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            credentials: {
+                username: '',
+                password: ''
+            }
+        }
+    }
+
+    onChange(event) {
+        const field = event.target.name;
+        const credentials = this.state.credentials;
+        credentials[field] = event.target.value;
+        return this.setState({credentials: credentials});
+    }
+
     handleToggleModal() {
         return this.props.dispatch(toggleModal('login'));
     }
@@ -20,6 +38,11 @@ class LoginModal extends React.Component {
         if (event.key === "Escape") {
             this.handleToggleLoginModal();
         }
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        return this.props.dispatch(submitLogin('andresmechali', 'asd'));
     }
 
     render() {
@@ -42,16 +65,16 @@ class LoginModal extends React.Component {
                                     <ModalFormElementWrapper>
                                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <ModalFormLabel>Username</ModalFormLabel>
-                                            <ModalFormInput className="form-control" type="text"/>
+                                            <ModalFormInput name="username" onChange={this.onChange.bind(this)} className="form-control" type="text"/>
                                         </div>
                                     </ModalFormElementWrapper>
                                     <ModalFormElementWrapper>
                                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <ModalFormLabel>Password</ModalFormLabel>
-                                            <ModalFormInput className="form-control" type="password"/>
+                                            <ModalFormInput name="password" onChange={this.onChange.bind(this)} className="form-control" type="password"/>
                                         </div>
                                     </ModalFormElementWrapper>
-                                    <ModalButton className="btn btn-primary btn-lg full-width">Login</ModalButton>
+                                    <ModalButton onClick={this.handleSubmit.bind(this)} className="btn btn-primary btn-lg full-width">Login</ModalButton>
                                 </div>
                             </form>
                         </ModalFormWrapper>
