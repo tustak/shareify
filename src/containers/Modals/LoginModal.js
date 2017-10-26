@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { toggleModal } from '../../redux/actions/uiActions';
-import { submitLogin } from '../../redux/actions/userActions';
+import { loginUser } from '../../redux/actions/userActions';
 
 import { Backdrop, Wrapper, ModalFormWrapper, ModalFormElementWrapper, ModalButton, ModalFormInput, ModalFormLabel, ModalTitle} from './styles';
 
@@ -36,13 +36,14 @@ class LoginModal extends React.Component {
 
     handleKeyPress(event) {
         if (event.key === "Escape") {
-            this.handleToggleLoginModal();
+            this.handleToggleModal();
         }
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        return this.props.dispatch(submitLogin('andresmechali', 'asd'));
+        loginUser(this.state.credentials, this.props.dispatch);
+        //return this.props.dispatch(loginUser('andresmechali', 'asd'));
     }
 
     render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { Dropdown } from './Dropdown';
+import Dropdown from './Dropdown';
 
 const Wrapper = styled.ul`
     cursor: pointer;
@@ -38,8 +38,9 @@ const UserName = styled.li`
 `;
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        user: state.user.user.data.userData
+        user: state.user.user
     }
 };
 

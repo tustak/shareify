@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+import { logoutUser } from '../../redux/actions/userActions';
 
 const DropdownWrapper = styled.div`
   background-color: #fff;
@@ -58,6 +61,7 @@ const DropdownWrapper = styled.div`
         color: #515365;
         display: block;
         font-weight: 700;
+        cursor: pointer;
         :hover {
             color: #ff5e3a;
             background-color: transparent;
@@ -67,22 +71,41 @@ const DropdownWrapper = styled.div`
   }
 `;
 
-export const Dropdown = () => (
-    <DropdownWrapper className="dropdown-menu" aria-labelledby="user-menu">
-        <div className="block-title">
-            <h6 className="title">Your account</h6>
-        </div>
-        <div className="block-body">
-            <a href="/">Profile settings</a>
-            <a href="/">Logout</a>
-        </div>
-        <div className="block-title">
-            <h6 className="title">About us</h6>
-        </div>
-        <div className="block-body">
-            <a href="/">How it works</a>
-            <a href="/">FAQ</a>
-            <a href="/">Contact us</a>
-        </div>
-    </DropdownWrapper>
-);
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+    }
+};
+
+class Dropdown extends React.Component {
+
+    handleLogout() {
+        return this.props.dispatch(logoutUser());
+    }
+
+    render() {
+        return (
+            <DropdownWrapper className="dropdown-menu" aria-labelledby="user-menu">
+                <div className="block-title">
+                    <h6 className="title">Your account</h6>
+                </div>
+                <div className="block-body">
+                    <a href="/">Profile settings</a>
+                    <a onClick={this.handleLogout.bind(this)}>Logout</a>
+                </div>
+                <div className="block-title">
+                    <h6 className="title">About us</h6>
+                </div>
+                <div className="block-body">
+                    <a href="/">How it works</a>
+                    <a href="/">FAQ</a>
+                    <a href="/">Contact us</a>
+                </div>
+            </DropdownWrapper>
+        )
+    }
+};
+
+Dropdown = connect(mapStateToProps)(Dropdown);
+
+export default Dropdown

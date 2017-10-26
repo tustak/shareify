@@ -6,16 +6,20 @@ import { getUserData } from '../../redux/actions/userActions';
 import UserMenuNoUser from "../UserMenuNoUser/index";
 import UserMenuUser from "../UserMenuUser/index";
 
-const mapStateToProps = (state) => (
-    {
+const mapStateToProps = (state) => {
+    return {
         user: state.user,
     }
-);
+
+};
 
 class UserMenu extends React.Component {
 
+
     componentWillMount() {
-        this.props.dispatch(getUserData(1))
+        if (window.sessionStorage.jwt){
+            this.props.dispatch(getUserData(1))
+        }
     }
 
     render() {

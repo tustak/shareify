@@ -9,20 +9,23 @@ const userReducer =
                 user: action.payload,
 
             });
-        case 'SUBMIT_LOGIN_FULFILLED':
-            window.sessionStorage.setItem('jwt', action.payload.data.token);
+        case 'LOGIN_SUCCESS':
+            return state;
+        case 'LOGOUT_USER':
+            return Object.assign({}, state, {
+                user: null,
+                auth: false,
+            });
+        case 'GET_USER_DATA_FULFILLED':
+            console.log(action.payload)
             return Object.assign({}, state, {
                 user: action.payload,
                 auth: true,
             });
-        case 'SUBMIT_LOGIN_REJECTED':
-            console.log('login rejected');
-            console.log(action.payload);
-            return state;
-        case 'GET_USER_DATA_FULFILLED':
+        case 'GET_USER_DATA_REJECTED':
             return Object.assign({}, state, {
-                user: action.payload,
-                auth: true,
+                user: null,
+                auth: false,
             });
 
         default:
