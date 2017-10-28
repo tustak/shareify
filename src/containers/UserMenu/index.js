@@ -1,30 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getUserData } from '../../redux/actions/userActions';
+import UserMenuNoUser from '../UserMenuNoUser/index';
+import UserMenuUser from '../UserMenuUser/index';
 
-import UserMenuNoUser from "../UserMenuNoUser/index";
-import UserMenuUser from "../UserMenuUser/index";
+import { authenticateUser } from '../../redux/actions/sessionActions';
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user,
+        session: state.session,
     }
-
 };
 
 class UserMenu extends React.Component {
-
-
     componentWillMount() {
-        if (window.sessionStorage.jwt){
-            this.props.dispatch(getUserData(1))
-        }
+        this.props.dispatch(authenticateUser())
     }
 
     render() {
-        const { user } = this.props;
-        if (user.user) {
+        const { user } = this.props.session;
+        if (user) {
             return <UserMenuUser/>
         }
         else {

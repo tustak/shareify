@@ -20,8 +20,8 @@ export default {
             }
         }
     },
-    user: {
-        user: null,
+    session: {
         auth: !!window.sessionStorage.jwt,
-    }
+        user: null,
+    },
 }

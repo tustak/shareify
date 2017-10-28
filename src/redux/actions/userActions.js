@@ -1,8 +1,3 @@
-import {
-    Redirect,
-    BrowserRouter,
-    withRouter
-} from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -23,26 +18,41 @@ export function fetchUser(userId) {
 }
 
 export function loginUser(credentials, dispatch) {
-    axios.post(
+    return axios.post(
         'http://localhost:4000/api/login',
         {
             headers: {'Content-Type': 'application/json'},
-            withCredentials: false,
             data: credentials,
         }
-
     )
-        .then(
-            response => {
-                window.sessionStorage.setItem('jwt', response.token);
-                dispatch(loginSuccess());
-            }
-        )
+}
+
+export function checkJWT() {
+    return axios.post(
+        'http://localhost:4000/api/userdata',
+        null,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'authentication': window.sessionStorage.jwt
+            },
+        }
+    )
 }
 
 export function loginSuccess() {
     return {
-        type: LOGIN_SUCCESS
+        type: LOGIN_SUCCESS,
+        payload: axios.post(
+            'http://localhost:4000/api/userdata',
+            null,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authentication': window.sessionStorage.jwt
+                },
+            }
+        )
     }
 }
 
@@ -54,12 +64,12 @@ export function logoutUser() {
     }
 }
 
-export function getUserData(userId) {
+export function getUserData() {
     return {
         type: GET_USER_DATA,
         payload: axios.post(
             'http://localhost:4000/api/userdata',
-            userId,
+            null,
             {
                 headers: {
                     'Content-Type': 'application/json',

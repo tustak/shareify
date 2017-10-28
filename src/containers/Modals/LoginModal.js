@@ -2,9 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { toggleModal } from '../../redux/actions/uiActions';
-import { loginUser } from '../../redux/actions/userActions';
 
-import { Backdrop, Wrapper, ModalFormWrapper, ModalFormElementWrapper, ModalButton, ModalFormInput, ModalFormLabel, ModalTitle} from './styles';
+import { loginUser } from '../../redux/actions/sessionActions';
+import { authenticateUser } from '../../redux/actions/sessionActions';
+
+
+import { Backdrop,
+    Wrapper,
+    ModalFormWrapper,
+    ModalFormElementWrapper,
+    ModalButton,
+    ModalFormInput,
+    ModalFormLabel,
+    ModalTitle,
+    ToggleButton
+} from './styles';
+
+import ErrorLabel from '../ErrorLabel/ErrorLabel';
 
 const mapStateToProps = (state) => {
     return {
@@ -18,8 +32,9 @@ class LoginModal extends React.Component {
         this.state = {
             credentials: {
                 username: '',
-                password: ''
-            }
+                password: '',
+            },
+            error_message: '',
         }
     }
 
@@ -40,10 +55,32 @@ class LoginModal extends React.Component {
         }
     }
 
+
     handleSubmit(e) {
         e.preventDefault();
-        loginUser(this.state.credentials, this.props.dispatch);
-        //return this.props.dispatch(loginUser('andresmechali', 'asd'));
+        Promise.resolve(
+            loginUser(this.state.credentials)
+        ).then(
+            response => {
+                window.sessionStorage.setItem('jwt', response.data);
+                this.handleToggleModal();
+                this.props.dispatch(authenticateUser());
+            }
+        ).catch(
+            err => {
+                if (err.response) {
+                    console.log(err.response)
+                }
+                else {
+                    console.log(JSON.stringify(err))
+                }
+                this.setState(
+                    {
+                        'error_message': 'Either the server is down or the credentials are wrong.'
+                    }
+                )
+            }
+        )
     }
 
     render() {
@@ -75,8 +112,18 @@ class LoginModal extends React.Component {
                                             <ModalFormInput name="password" onChange={this.onChange.bind(this)} className="form-control" type="password"/>
                                         </div>
                                     </ModalFormElementWrapper>
-                                    <ModalButton onClick={this.handleSubmit.bind(this)} className="btn btn-primary btn-lg full-width">Login</ModalButton>
+                                    <ModalFormElementWrapper>
+                                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <ToggleButton />
+                                        </div>
+                                    </ModalFormElementWrapper>
+
                                 </div>
+                                {this.state.error_message ?
+                                    <ErrorLabel error_message={this.state.error_message} />
+                                    :
+                                    ''}
+                                <ModalButton onClick={this.handleSubmit.bind(this)} className="btn btn-primary btn-lg full-width">Login</ModalButton>
                             </form>
                         </ModalFormWrapper>
                     </Wrapper>

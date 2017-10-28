@@ -9,17 +9,18 @@ const userReducer =
                 user: action.payload,
 
             });
-        case 'LOGIN_SUCCESS':
-            return state;
+        case 'LOGIN_SUCCESS_FULFILLED':
+            return Object.assign({}, state, {
+                auth: true
+            });
         case 'LOGOUT_USER':
             return Object.assign({}, state, {
                 user: null,
                 auth: false,
             });
         case 'GET_USER_DATA_FULFILLED':
-            console.log(action.payload)
             return Object.assign({}, state, {
-                user: action.payload,
+                data: action.payload.data,
                 auth: true,
             });
         case 'GET_USER_DATA_REJECTED':

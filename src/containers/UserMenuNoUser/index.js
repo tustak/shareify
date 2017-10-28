@@ -6,7 +6,6 @@ import RegisterModal from '../Modals/RegisterModal';
 import LoginModal from '../Modals/LoginModal';
 
 import { toggleModal } from '../../redux/actions/uiActions';
-import { fetchUser } from "../../redux/actions/userActions";
 
 const Li = styled.li`
     cursor: pointer;
@@ -22,20 +21,9 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onClick: (modal) => {
-            dispatch(toggleModal(modal))
-        }
-    }
-}
-
 class UserMenuNoUser extends React.Component {
     handleToggleModal(modal) {
-        return this.props.onClick(modal);
-    }
-    handleFetchUser(userId) {
-        return this.props.dispatch(fetchUser(1));
+        return this.props.dispatch(toggleModal(modal));
     }
 
     render() {
@@ -50,6 +38,6 @@ class UserMenuNoUser extends React.Component {
     }
 }
 
-UserMenuNoUser = connect(mapStateToProps, mapDispatchToProps)(UserMenuNoUser);
+UserMenuNoUser = connect(mapStateToProps)(UserMenuNoUser);
 
 export default UserMenuNoUser;

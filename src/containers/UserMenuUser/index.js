@@ -38,17 +38,14 @@ const UserName = styled.li`
 `;
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
-        user: state.user.user
+        user: state.session.user
     }
 };
 
 class UserMenuUser extends React.Component {
-
     render() {
         const { user } = this.props;
-        console.log(user);
         return (
             <Wrapper className="nav navbar-nav navbar-right" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <li>

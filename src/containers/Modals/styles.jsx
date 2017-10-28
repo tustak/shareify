@@ -1,3 +1,5 @@
+
+import React from 'react';
 import styled from 'styled-components';
 
 export const Backdrop = styled.div`
@@ -73,6 +75,48 @@ export const ModalFormInput = styled.input`
     font-size: 14px;
     background-color: transparent;
 `;
+
+export const ToggleWrapper = styled.div`
+    vertical-align: middle;
+    margin-bottom: 20px;
+    input {
+        opacity: 0;
+        height: 0;
+        :checked {
+            background-color: #ff5e3a;
+        }
+    }
+    span {
+        content: "";
+        display: inline-block;
+        width: 66px;
+        height: 30px;
+        border-radius: 15px;
+        margin-right: 0;
+        transition: background 0.3s ease;
+        ::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 26px;
+            background-color: #fff;
+            border-radius: 20px;
+            position: relative;
+            left: 3px;
+            top: 3px;
+            transition: left 0.3s ease;
+            text-align: center;
+        }
+    }
+`;
+
+export const ToggleButton = () => (
+    <ToggleWrapper>
+        <input type="checkbox"/>
+        <span/>
+    </ToggleWrapper>
+);
 
 export const ModalButton = styled.button`
     background-color: #ff5e3a;

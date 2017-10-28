@@ -9,7 +9,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 // Redux
-const initialState = {};
+const initialState = {}; // check how to use it
 const history = createHistory();
 const store = configureStore(initialState, history);
 

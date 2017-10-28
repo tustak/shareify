@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 
 import items from './itemsReducer';
-import user from './userReducer';
 import ui from './uiReducer';
+//import user from './userReducer';
+import session from './sessionReducer';
 
 export default combineReducers({
     items,
-    user,
     ui,
+    session,
 })

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { logoutUser } from '../../redux/actions/userActions';
+import { logoutUser } from '../../redux/actions/sessionActions';
 
 const DropdownWrapper = styled.div`
   background-color: #fff;
