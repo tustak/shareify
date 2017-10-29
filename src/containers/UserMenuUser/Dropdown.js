@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
 import { logoutUser } from '../../redux/actions/sessionActions';
 
 const DropdownWrapper = styled.div`
@@ -90,7 +91,7 @@ class Dropdown extends React.Component {
                     <h6 className="title">Your account</h6>
                 </div>
                 <div className="block-body">
-                    <a href="/">Profile settings</a>
+                    <Link to="/user/settings">Profile settings</Link>
                     <a onClick={this.handleLogout.bind(this)}>Logout</a>
                 </div>
                 <div className="block-title">

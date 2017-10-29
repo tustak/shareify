@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from './containers/HomePage/Loadable';
+import Settings from './containers/Settings/Loadable';
 import Header from './containers/Header/Loadable';
 
 import './App.css';
@@ -12,7 +13,8 @@ class App extends Component {
       <div>
           <Header/>
         <Switch>
-            <Route exact patch="/" component={HomePage} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/user/settings" component={Settings} />
         </Switch>
       </div>
     );
