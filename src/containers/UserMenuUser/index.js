@@ -49,11 +49,11 @@ class UserMenuUser extends React.Component {
         return (
             <Wrapper className="nav navbar-nav navbar-right" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <li>
-                    <Img className="user-image" src={require(`../../img/${user.personalData.picturePath}.jpg`)} alt={user.username}/>
+                    <Img className="user-image" src={require(`../../img/${user.picturePath}.jpg`)} alt={user.username}/>
                 </li>
                 <UserName>
                     <div className="user-name">
-                        {user.personalData.firstName} {user.personalData.lastName}
+                        {user.firstName} {user.lastName}
                     </div>
                     <span className="user-short-description">
                         {user.status}

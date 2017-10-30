@@ -16,7 +16,37 @@ const uiReducer =
             );
             modals = modals.toJS();
             return {
+                ...state,
                 modals
+            };
+        case 'LOAD_PERSONAL_SETTINGS_FULFILLED':
+            return Object.assign({}, state, {
+                ...state,
+                forms: {
+                    ...state.forms,
+                    personal: action.payload.data
+                }
+            });
+        case 'SET_DATE_BIRTH':
+            return Object.assign({}, state, {
+                forms: {
+                    ...state.forms,
+                    personal: {
+                        ...state.forms.personal,
+                        dateOfBirth: action.payload
+                    }
+                }
+            });
+        case 'SET_FORM_PROPERTY':
+            return {
+                ...state,
+                forms: {
+                    ...state.forms,
+                    [action.payload.form]: {
+                        ...state.forms[action.payload.form],
+                        [action.payload.property]: action.payload.value
+                    }
+                }
             };
         default:
             return state;

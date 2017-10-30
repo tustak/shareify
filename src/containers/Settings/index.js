@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import PersonalSettings from '../../components/Forms/PersonalSettings';
+
 import {
     Block,
     BlockTitle,
@@ -8,6 +10,7 @@ import {
     BlockRoundItem,
     BlockContent
 } from "../Blocks/Block";
+
 
 const SettingsWrapper = styled.div`
     padding-top: 100px;
@@ -29,7 +32,7 @@ const Settings = () => (
                             </BlockRoundItem>
                         </BlockLink>
                         <BlockLink to="/">
-                            <h6>asd</h6>
+                            <h6>Reviews</h6>
                         </BlockLink>
                     </Block>
                 </div>
@@ -39,9 +42,7 @@ const Settings = () => (
                             <h6>Personal Information</h6>
                         </BlockTitle>
                         <BlockContent>
-                            <div>name</div>
-                            <div>surname</div>
-                            <div>asdds</div>
+                            <PersonalSettings />
                         </BlockContent>
                     </Block>
                 </div>
