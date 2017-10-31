@@ -92,7 +92,7 @@ class Dropdown extends React.Component {
                 </div>
                 <div className="block-body">
                     <Link to="/user/settings">Profile settings</Link>
-                    <a onClick={this.handleLogout.bind(this)}>Logout</a>
+                    <Link to="/" onClick={this.handleLogout.bind(this)}>Logout</Link>
                 </div>
                 <div className="block-title">
                     <h6 className="title">About us</h6>

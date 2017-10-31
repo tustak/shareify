@@ -42,10 +42,21 @@ const uiReducer =
                 ...state,
                 forms: {
                     ...state.forms,
+                    saveMessage: 'Save changes',
+                    saveDisabled: false,
                     [action.payload.form]: {
                         ...state.forms[action.payload.form],
                         [action.payload.property]: action.payload.value
                     }
+                }
+            };
+        case 'SET_SAVED_MESSAGE':
+            return {
+                ...state,
+                forms: {
+                    ...state.forms,
+                    saveMessage: 'Saved',
+                    saveDisabled: true
                 }
             };
         default:

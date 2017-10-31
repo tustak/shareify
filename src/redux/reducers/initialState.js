@@ -20,6 +20,8 @@ export default {
             }
         },
         forms: {
+            saveMessage: 'Save changes',
+            saveDisabled: true,
             personal: {
                 id: null,
                 username: '',

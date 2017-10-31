@@ -6,6 +6,7 @@ const TOGGLE_MODAL = 'TOGGLE_MODAL';
 const LOAD_PERSONAL_SETTINGS = 'LOAD_PERSONAL_SETTINGS';
 const SET_DATE_BIRTH = 'SET_DATE_BIRTH';
 const SET_FORM_PROPERTY = 'SET_FORM_PROPERTY';
+const SET_SAVED_MESSAGE = 'SET_SAVED_MESSAGE';
 
 export function toggleModal(modal) {
     return {
@@ -38,7 +39,7 @@ export function setDateBirth(date) {
     }
 }
 
-export function setFormPropery(form, property, value) {
+export function setFormProperty(form, property, value) {
     return {
         type: SET_FORM_PROPERTY,
         payload: {
@@ -46,5 +47,25 @@ export function setFormPropery(form, property, value) {
             property: property,
             value: value
         }
+    }
+}
+
+export function savePersonalSettings(data) {
+    const url = `${BASE_URL}/api/save`;
+    return axios({
+            method: 'post',
+            url: url,
+            data: data,
+            headers: {
+                'Content-Type': 'application/json',
+                'authentication': window.sessionStorage.jwt,
+            }
+        }
+    )
+}
+
+export function setSavedMessage() {
+    return {
+        type: 'SET_SAVED_MESSAGE',
     }
 }

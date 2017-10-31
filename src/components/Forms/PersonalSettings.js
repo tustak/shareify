@@ -5,9 +5,18 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 
-import { loadPersonalSettings } from '../../redux/actions/uiActions'
-import { setDateBirth } from '../../redux/actions/uiActions'
-import { setFormPropery } from "../../redux/actions/uiActions";
+import {
+    ButtonOrange,
+    ButtonGray,
+} from '../../containers/Buttons/Buttons'
+
+import {
+    loadPersonalSettings,
+    savePersonalSettings,
+    setDateBirth,
+    setFormProperty,
+    setSavedMessage
+} from '../../redux/actions/uiActions'
 
 import {
     FormGroup,
@@ -18,7 +27,9 @@ import {
 
 const mapStateToProps = (state) => {
     return {
-        personal: state.ui.forms.personal
+        personal: state.ui.forms.personal,
+        saveMessage: state.ui.forms.saveMessage,
+        saveDisabled: state.ui.forms.saveDisabled
     }
 };
 
@@ -31,7 +42,27 @@ class PersonalSettings extends React.Component {
 
     handleChange(event) {
         event.preventDefault();
-        this.props.dispatch(setFormPropery("personal", event.target.name, event.target.value))
+        this.props.dispatch(setFormProperty("personal", event.target.name, event.target.value))
+    }
+
+    restoreDefaults() {
+        this.props.dispatch(loadPersonalSettings())
+    }
+
+    handleSave() {
+        savePersonalSettings(this.props.personal)
+            .then(
+                response => {
+                    if (window.sessionStorage.jwt) {
+                        window.sessionStorage.jwt = response.data;
+                    }
+                    else if (window.localStorage.jwt) {
+                        window.localStorage.jwt = response.data;
+                    }
+                }
+            ).then(
+                this.props.dispatch(setSavedMessage())
+            )
     }
 
     componentDidMount() {
@@ -45,17 +76,11 @@ class PersonalSettings extends React.Component {
             );
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-    }
-
     render() {
         const {personal} = this.props;
-        console.log(this.props);
         const dateOfBirth = new Date(
             personal.dateOfBirth
         ).toISOString();
-        console.log(this.props.personal);
         return (
             <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -106,6 +131,12 @@ class PersonalSettings extends React.Component {
                         <Label>Phone number</Label>
                         <InputFormControl onChange={this.handleChange.bind(this)} name="phoneNumber" className="form-control" type="text" value={personal.phoneNumber} />
                     </FormGroup>
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <ButtonGray onClick={this.restoreDefaults.bind(this)} className="btn btn-primary btn-lg full-width">Restore defaults</ButtonGray>
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <ButtonOrange onClick={this.handleSave.bind(this)} className="btn btn-primary btn-lg full-width" disabled={this.props.saveDisabled}>{this.props.saveMessage}</ButtonOrange>
                 </div>
             </div>
         )
