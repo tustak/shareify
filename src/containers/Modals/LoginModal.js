@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import onClickOutside from 'react-onclickoutside';
+
 import { toggleModal } from '../../redux/actions/uiActions';
 
 import { loginUser } from '../../redux/actions/sessionActions';
 import { authenticateUser } from '../../redux/actions/sessionActions';
 
 
-import { Backdrop,
+import {
     Wrapper,
     ModalFormWrapper,
     ModalFormElementWrapper,
@@ -49,6 +51,11 @@ class LoginModal extends React.Component {
         return this.props.dispatch(toggleModal('login'));
     }
 
+    handleClickOutside = event => {
+        this.handleToggleModal();
+    }
+
+
     handleKeyPress(event) {
         if (event.key === "Escape") {
             this.handleToggleModal();
@@ -89,7 +96,6 @@ class LoginModal extends React.Component {
         }
         else {
             return (
-                <Backdrop onKeyDown={this.handleKeyPress.bind(this)}>
                     <Wrapper class="modal fade show">
                         <ModalTitle>
                             <h6>Login</h6>
@@ -127,12 +133,12 @@ class LoginModal extends React.Component {
                             </form>
                         </ModalFormWrapper>
                     </Wrapper>
-                </Backdrop>
+
             )
         }
     }
 }
 
-LoginModal = connect(mapStateToProps)(LoginModal);
+LoginModal = connect(mapStateToProps)(onClickOutside(LoginModal));
 
 export default LoginModal;

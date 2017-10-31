@@ -26,6 +26,15 @@ export const InputFormControl = styled.input`
     font-size: 12.25px;
 `;
 
+export const TextAreaFormControl = styled.textarea`
+    padding: 20.8px 17.6px 6.4px;
+    1px solid #e6ecf5
+    line-height: 1.8;
+    height: 108px!important;
+    color: #515365;
+    font-size: 12.25px;
+`;
+
 export const DateRangePicker = styled.div`
 
 `;

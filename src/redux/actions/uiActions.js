@@ -66,6 +66,6 @@ export function savePersonalSettings(data) {
 
 export function setSavedMessage() {
     return {
-        type: 'SET_SAVED_MESSAGE',
+        type: SET_SAVED_MESSAGE,
     }
 }

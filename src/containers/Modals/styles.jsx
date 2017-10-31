@@ -9,13 +9,14 @@ export const Backdrop = styled.div`
     left: 0;
     right: 0;
     width: 100%;
-    height: 1000px;
+    height: 100px;
     background-color: rgba(0,0,0,0.3);
     padding-top: 100px;
 `;
 
 export const Wrapper = styled.div`
     background-color: white;
+    top: 100px;
     display: block!important;
     width: 476px;
     max-width: calc(100% - 40px);
@@ -25,7 +26,7 @@ export const Wrapper = styled.div`
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
-    position: absolute;
+    position: fixed;
     left: calc(50% - 237px);
 `;
 

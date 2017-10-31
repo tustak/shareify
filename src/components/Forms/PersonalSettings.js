@@ -21,7 +21,8 @@ import {
 import {
     FormGroup,
     Label,
-    InputFormControl
+    InputFormControl,
+    TextAreaFormControl
 } from "../../containers/Inputs/Inputs";
 
 
@@ -132,6 +133,53 @@ class PersonalSettings extends React.Component {
                         <InputFormControl onChange={this.handleChange.bind(this)} name="phoneNumber" className="form-control" type="text" value={personal.phoneNumber} />
                     </FormGroup>
                 </div>
+                <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <FormGroup>
+                        <Label>Country of residence</Label>
+                        <InputFormControl onChange={this.handleChange.bind(this)} name="countryOfResidence" className="form-control" type="text" value={personal.countryOfResidence} />
+                    </FormGroup>
+                </div>
+                <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <FormGroup>
+                        <Label>City of residence</Label>
+                        <InputFormControl onChange={this.handleChange.bind(this)} name="cityOfResidence" className="form-control" type="text" value={personal.cityOfResidence} />
+                    </FormGroup>
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <FormGroup>
+                        <Label>Address</Label>
+                        <InputFormControl onChange={this.handleChange.bind(this)} name="address" className="form-control" type="text" value={personal.address} />
+                    </FormGroup>
+                </div>
+                <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <FormGroup>
+                        <Label>Apartment</Label>
+                        <InputFormControl onChange={this.handleChange.bind(this)} name="apartment" className="form-control" type="text" value={personal.apartment} />
+                    </FormGroup>
+                </div>
+                <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <FormGroup>
+                        <Label>Postal code</Label>
+                        <InputFormControl onChange={this.handleChange.bind(this)} name="postalCode" className="form-control" type="text" value={personal.postalCode} />
+                    </FormGroup>
+                </div>
+                <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <FormGroup>
+                        <Label>Gender</Label>
+                        <InputFormControl onChange={this.handleChange.bind(this)} name="gender" className="form-control" type="text" value={personal.gender} />
+                    </FormGroup>
+                </div>
+                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <FormGroup>
+                        <Label>Description</Label>
+                        <TextAreaFormControl onChange={this.handleChange.bind(this)} name="description" className="form-control" type="text" value={personal.description} />
+                    </FormGroup>
+                </div>
+
+
+
+
+
                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <ButtonGray onClick={this.restoreDefaults.bind(this)} className="btn btn-primary btn-lg full-width">Restore defaults</ButtonGray>
                 </div>
