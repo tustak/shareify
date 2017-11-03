@@ -8,6 +8,7 @@ import client from './graphql.config';*/
 import HomePage from './containers/HomePage/Loadable';
 import Settings from './containers/Settings/Loadable';
 import Header from './containers/Header/Loadable';
+import NewOffer from './containers/NewOffer/Loadable';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/user/settings" component={Settings} />
+                <Route exact path="/offer/new" component={NewOffer} />
             </Switch>
           </div>
         //</ApolloProvider>

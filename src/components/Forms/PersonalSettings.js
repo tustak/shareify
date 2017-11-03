@@ -62,7 +62,7 @@ class PersonalSettings extends React.Component {
                     }
                 }
             ).then(
-                this.props.dispatch(setSavedMessage())
+                this.props.dispatch(setSavedMessage("personal", "Saved"))
             )
     }
 

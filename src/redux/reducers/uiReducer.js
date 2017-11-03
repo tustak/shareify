@@ -55,8 +55,10 @@ const uiReducer =
                 ...state,
                 forms: {
                     ...state.forms,
-                    saveMessage: 'Saved',
-                    saveDisabled: true
+                    [action.payload.form]: {
+                        saveMessage: action.payload.saveMessage,
+                        saveDisabled: true
+                    }
                 }
             };
         case 'TOGGLE_BACKDROP':

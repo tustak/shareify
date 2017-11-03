@@ -65,9 +65,26 @@ export function savePersonalSettings(data) {
     )
 }
 
-export function setSavedMessage() {
+export function saveNewOffer(data) {
+    const url = `${BASE_URL}/api/offer/new`;
+    return axios({
+        method: 'post',
+        url: url,
+        data: data,
+        headers: {
+            'Content-Type': 'application/json',
+            'authentication': window.sessionStorage.jwt,
+        }
+    })
+}
+
+export function setSavedMessage(form, saveMessage) {
     return {
         type: SET_SAVED_MESSAGE,
+        payload: {
+            form: form,
+            saveMessage: saveMessage,
+        },
     }
 }
 

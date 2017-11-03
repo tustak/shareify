@@ -1,18 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-/*import {
-    Block,
-    BlockTitle
-} from '../Blocks/Block';*/
-
-import {
-    ButtonGreen
-} from "../Buttons/Buttons";
-
 import {
     RowWithButton
 } from "../../components/RowWithButton/RowWithButton";
+
+import {
+    Advantages
+} from "../Sections/Advantages";
+import {
+    HowItWorks
+} from "../Sections/HowItWorks";
 
 const Wrapper = styled.div`
     padding-top: 100px;
@@ -35,6 +33,9 @@ export default class HomePage extends React.Component {
                     title="Do you have anything to offer?"
                     buttonText="Start sharing it!"
                 />
+
+                <Advantages />
+                <HowItWorks />
             </Wrapper>
         )
     }

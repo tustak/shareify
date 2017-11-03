@@ -65,6 +65,17 @@ export default {
                 registered: '1900-01-01',
                 lastConnection: '1900-01-01',
                 lastLocation: [],
+            },
+            newOffer: {
+                id: undefined,
+                item: '',
+                description: '',
+                location: '',
+                pickupLocation: '',
+                picturePath: '',
+                quantity: 1,
+                saveMessage: 'Offer item',
+                saveDisabled: true,
             }
         }
     },

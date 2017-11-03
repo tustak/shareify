@@ -58,7 +58,6 @@ const mapStateToProps = (state) => {
 class UserMenuUser extends React.Component {
     render() {
         const { user } = this.props;
-        console.log(this.props);
         return (
             <Wrapper className="nav navbar-nav navbar-right" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <li>

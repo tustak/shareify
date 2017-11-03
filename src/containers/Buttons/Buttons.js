@@ -38,6 +38,7 @@ export const ButtonColor = styled.button`
     color: ${props => props.textColor ? props.textColor : '#fff'};
     border-radius: 5px;
     width: ${props => props.buttonWidth? props.buttonWidth : '200px'};
+    height: ${props => props.buttonHeight? props.buttonHeight : '50px'};
     :active {
         background-color: ${props => props.color ? props.color : 'black'};
         border-color: ${props => props.color ? props.color : 'black'};
