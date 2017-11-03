@@ -7,6 +7,7 @@ const LOAD_PERSONAL_SETTINGS = 'LOAD_PERSONAL_SETTINGS';
 const SET_DATE_BIRTH = 'SET_DATE_BIRTH';
 const SET_FORM_PROPERTY = 'SET_FORM_PROPERTY';
 const SET_SAVED_MESSAGE = 'SET_SAVED_MESSAGE';
+const TOGGLE_BACKDROP = 'TOGGLE_BACKDROP';
 
 export function toggleModal(modal) {
     return {
@@ -67,5 +68,11 @@ export function savePersonalSettings(data) {
 export function setSavedMessage() {
     return {
         type: SET_SAVED_MESSAGE,
+    }
+}
+
+export function toggleBackdrop() {
+    return {
+        type: TOGGLE_BACKDROP
     }
 }

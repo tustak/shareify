@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 
 import onClickOutside from 'react-onclickoutside';
 
-import { toggleModal } from '../../redux/actions/uiActions';
+import {
+    toggleModal,
+    toggleBackdrop
+} from '../../redux/actions/uiActions';
 
 import { loginUser } from '../../redux/actions/sessionActions';
 import { authenticateUser } from '../../redux/actions/sessionActions';
@@ -48,6 +51,7 @@ class LoginModal extends React.Component {
     }
 
     handleToggleModal() {
+        this.props.dispatch(toggleBackdrop());
         return this.props.dispatch(toggleModal('login'));
     }
 

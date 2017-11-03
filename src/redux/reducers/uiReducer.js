@@ -59,6 +59,11 @@ const uiReducer =
                     saveDisabled: true
                 }
             };
+        case 'TOGGLE_BACKDROP':
+            return {
+                ...state,
+                backdrop: !state.backdrop
+            };
         default:
             return state;
     }

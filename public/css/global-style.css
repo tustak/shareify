@@ -5,3 +5,7 @@ body {
 a:hover {
     text-decoration: none;
 }
+
+.align-right {
+    text-align: right;
+}

@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import UserMenu from '../UserMenu';
+import { Backdrop } from '../Modals/styles';
 
 const Wrapper = styled.div`
     background-color: #3f4257;
@@ -40,11 +42,18 @@ const HeaderTitle = styled.div`
     }
 `;
 
+const mapStateToProps = (state) => {
+    return {
+        backdrop: state.ui.backdrop
+    }
+};
+
 class Header extends React.Component {
     render() {
         return(
             <div>
                 <Wrapper>
+                    { this.props.backdrop ? <Backdrop /> : ''}
                     <div className="container-fluid">
                         <HeaderTitle className="navbar-header">
                             <a href="/">Header</a>
@@ -56,5 +65,7 @@ class Header extends React.Component {
         )
     }
 }
+
+Header = connect(mapStateToProps)(Header);
 
 export default Header;

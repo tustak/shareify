@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import gql from 'graphql-tag';
+import {
+    graphql,
+} from 'react-apollo';
 
 import Dropdown from './Dropdown';
 
@@ -37,6 +41,14 @@ const UserName = styled.li`
     }
 `;
 
+const userQuery = gql`
+    query UserQuery {
+        users {
+            id
+        }
+    }
+`;
+
 const mapStateToProps = (state) => {
     return {
         user: state.session.user
@@ -46,6 +58,7 @@ const mapStateToProps = (state) => {
 class UserMenuUser extends React.Component {
     render() {
         const { user } = this.props;
+        console.log(this.props);
         return (
             <Wrapper className="nav navbar-nav navbar-right" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <li>
@@ -64,6 +77,8 @@ class UserMenuUser extends React.Component {
         )
     }
 }
+
+UserMenuUser = graphql(userQuery)(UserMenuUser);
 
 UserMenuUser = connect(mapStateToProps)(UserMenuUser);
 

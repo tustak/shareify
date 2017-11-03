@@ -31,3 +31,19 @@ export const ButtonGray = styled.button`
         border-color: #aaafcf;
     }
 `;
+
+export const ButtonGreen = styled.button`
+    background-color: #1ed760;
+    border-color: #1ed760;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    :active {
+        background-color: #1ed760;
+        border-color: #1ed760;   
+    }
+    :hover {
+        background-color: #1ed760;
+        border-color: #1ed760;
+    }
+`;

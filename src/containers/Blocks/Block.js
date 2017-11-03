@@ -6,6 +6,7 @@ export const Block = styled.div`
     border-radius: 5px;
     border: 1px solid #e6ecf5;
     margin-bottom: 15px;
+    position: relative;
 `;
 
 export const BlockLink = styled(Link)`

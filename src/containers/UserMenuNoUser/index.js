@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+//import FacebookLogin from 'react-facebook-login';
 
 import RegisterModal from '../Modals/RegisterModal';
 import LoginModal from '../Modals/LoginModal';
 
-import { toggleModal } from '../../redux/actions/uiActions';
+import {
+    toggleModal,
+    toggleBackdrop
+} from '../../redux/actions/uiActions';
 
 const Li = styled.li`
     cursor: pointer;
@@ -23,8 +27,13 @@ const mapStateToProps = (state) => {
 
 class UserMenuNoUser extends React.Component {
     handleToggleModal(modal) {
+        this.props.dispatch(toggleBackdrop());
         return this.props.dispatch(toggleModal(modal));
     }
+
+    responseFacebook = (response) => {
+        console.log(response);
+    };
 
     render() {
         return (

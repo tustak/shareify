@@ -4,6 +4,7 @@ export default {
         list: [],
     },
     ui: {
+        backdrop: false,
         modals: {
             register: {
                 display: false,
