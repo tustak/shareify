@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import gql from 'graphql-tag';
+/*import gql from 'graphql-tag';
 import {
     graphql,
-} from 'react-apollo';
+} from 'react-apollo';*/
 
 import Dropdown from './Dropdown';
 
@@ -41,13 +41,13 @@ const UserName = styled.li`
     }
 `;
 
-const userQuery = gql`
+/*const userQuery = gql`
     query UserQuery {
         users {
             id
         }
     }
-`;
+`;*/
 
 const mapStateToProps = (state) => {
     return {
@@ -78,7 +78,7 @@ class UserMenuUser extends React.Component {
     }
 }
 
-UserMenuUser = graphql(userQuery)(UserMenuUser);
+//UserMenuUser = graphql(userQuery)(UserMenuUser);
 
 UserMenuUser = connect(mapStateToProps)(UserMenuUser);
 

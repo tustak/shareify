@@ -32,18 +32,18 @@ export const ButtonGray = styled.button`
     }
 `;
 
-export const ButtonGreen = styled.button`
-    background-color: #1ed760;
-    border-color: #1ed760;
-    color: #fff;
+export const ButtonColor = styled.button`
+    background-color: ${props => props.color ? props.color : 'black'};
+    border-color: ${props => props.color ? props.color : 'black'};
+    color: ${props => props.textColor ? props.textColor : '#fff'};
     border-radius: 5px;
-    width: 100%;
+    width: ${props => props.buttonWidth? props.buttonWidth : '200px'};
     :active {
-        background-color: #1ed760;
-        border-color: #1ed760;   
+        background-color: ${props => props.color ? props.color : 'black'};
+        border-color: ${props => props.color ? props.color : 'black'};
     }
     :hover {
-        background-color: #1ed760;
-        border-color: #1ed760;
+        background-color: ${props => props.color ? props.color : 'black'};
+        border-color: ${props => props.color ? props.color : 'black'};
     }
 `;

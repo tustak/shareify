@@ -1,7 +1,7 @@
 
 import { ApolloClient } from 'apollo-client-preset';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
+/*import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';*/
 import {
     makeExecutableSchema,
     addMockFunctionsToSchema
@@ -16,10 +16,7 @@ const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
 
 const client = new ApolloClient({
     networkInterface: mockNetworkInterface,
-    link: new HttpLink({
-        uri: 'http://localhost:3333/graphql',
-    }),
-    cache: new InMemoryCache()
+
 });
 
 export default client;

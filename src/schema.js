@@ -20,30 +20,23 @@ type User {
 	gender: String
 	picturePath: String
 	description: String
-	#// Preferences
 	allowsToReceiveRequests: Boolean
 	radiusOfSearch: Int
-	#// Social
 	facebook: String
 	instagram: String
 	linkedIn: String
 	twitter: String
-	#// Certifications
 	validPhone: Boolean
 	validEmail: Boolean
 	facebookFriends: Int
-	#// Items
 	currentPublishedById: [Int]
 	currentRequestedById: [Int]
-	#// Permissions
 	isAdmin: Boolean
 	isSuperAdmin: Boolean
-	#// History
 	registered: String
 	lastConnection: String
 	lastLocation: [Float]
 }
-
 
 type Query {
 	users: [User]
