@@ -14,6 +14,8 @@ import {
     TextAreaFormControl
 } from "../../containers/Inputs/Inputs";
 
+import PlacesSearchBox from '../Maps/SearchBox';
+
 const mapStateToProps = (state) => {
     return {
         newOffer: state.ui.forms.newOffer
@@ -45,10 +47,14 @@ class NewOffer extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <Label>Where do you have it?</Label>
-                        <InputFormControl onChange={this.handleChange.bind(this)} name="location" className="form-control" type="text" value={newOffer.quantity} />
+                        <PlacesSearchBox
+                            googleMapURL= "https://maps.googleapis.com/maps/api/js?key=AIzaSyA8zfwWQ-K9UXLe64adjv_dn8ELzk6yLdA&libraries=geometry,drawing,places"
+                            loadingElement= {<div style={{ height: `100%` }} />}
+                            containerElement= {<div style={{ height: `400px` }} />}
+                        />
                     </FormGroup>
                 </div>
-                <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <FormGroup>
                         <Label>How many do you have?</Label>
                         <InputFormControl onChange={this.handleChange.bind(this)} name="quantity" className="form-control" type="text" value={newOffer.quantity} />

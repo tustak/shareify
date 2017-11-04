@@ -8,6 +8,7 @@ const SET_DATE_BIRTH = 'SET_DATE_BIRTH';
 const SET_FORM_PROPERTY = 'SET_FORM_PROPERTY';
 const SET_SAVED_MESSAGE = 'SET_SAVED_MESSAGE';
 const TOGGLE_BACKDROP = 'TOGGLE_BACKDROP';
+const SET_PLACES = 'SET_PLACES';
 
 export function toggleModal(modal) {
     return {
@@ -85,6 +86,16 @@ export function setSavedMessage(form, saveMessage) {
             form: form,
             saveMessage: saveMessage,
         },
+    }
+}
+
+export function setPlaces(form, places) {
+    return {
+        type: SET_PLACES,
+        payload: {
+            form: form,
+            places: places
+        }
     }
 }
 

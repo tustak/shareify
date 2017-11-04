@@ -61,6 +61,17 @@ const uiReducer =
                     }
                 }
             };
+        case 'SET_PLACES':
+            return {
+                ...state,
+                forms: {
+                    ...state.forms,
+                    [action.payload.form]: {
+                        ...state.forms[action.payload.form],
+                        places: action.payload.places
+                    }
+                }
+            };
         case 'TOGGLE_BACKDROP':
             return {
                 ...state,

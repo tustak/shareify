@@ -10,6 +10,8 @@ import {
     ButtonColor
 } from "../../containers/Buttons/Buttons";
 
+import { Map } from "../Maps/Map"
+
 const mapStateToProps = (state) => {
     return {
         newOffer: state.ui.forms.newOffer
@@ -18,7 +20,10 @@ const mapStateToProps = (state) => {
 
 class NewOfferPreview extends React.Component {
 
+
+
     render() {
+
         const {newOffer} = this.props;
         return(
             <Block>
@@ -32,7 +37,17 @@ class NewOfferPreview extends React.Component {
                     <h5><span className="h5 bold">Description: </span>{newOffer.description}</h5>
                 </BlockTitle>
                 <BlockTitle>
-                    <h6>Location:</h6>
+                    <h5><span className="h5 bold">Location: </span>{newOffer.places[0]? newOffer.places[0].formatted_address : ''}</h5>
+                </BlockTitle>
+                <BlockTitle>
+                    <Map
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8zfwWQ-K9UXLe64adjv_dn8ELzk6yLdA&libraries=geometry,drawing,places"
+                        loadingElement={<div></div>}
+                        containerElement={<div style={{ height: `200px`, verticalAlign:`inherit`}} />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                        latitude={this.props.newOffer.places[0]? this.props.newOffer.places[0].geometry.location.lat(): 55.676372}
+                        longitude={this.props.newOffer.places[0]? this.props.newOffer.places[0].geometry.location.lng(): 12.568196}
+                    />
                 </BlockTitle>
                 <BlockTitle>
                     <ButtonColor

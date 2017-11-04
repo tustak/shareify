@@ -71,6 +71,7 @@ export default {
                 item: '',
                 description: '',
                 location: '',
+                places: [],
                 pickupLocation: '',
                 picturePath: '',
                 quantity: 1,
