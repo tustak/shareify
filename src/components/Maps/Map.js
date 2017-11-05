@@ -9,6 +9,7 @@ import {
     withScriptjs,
     withGoogleMap,
     GoogleMap,
+    Circle
 } from 'react-google-maps';
 
 
@@ -27,12 +28,25 @@ export const Map = compose(
     <Wrapper>
         <GoogleMap
             key={Math.random()}
-            defaultZoom={11}
+            defaultZoom={10}
             defaultCenter={{
                 lat: props.latitude,
                 lng: props.longitude,
             }}
+            options={{
+                zoomControl:false,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: false
+            }}
         >
+            <Circle
+                center={{ lat: props.latitude, lng: props.longitude }}
+                radius={props.radiusOfSearch}
+            />
+
         </GoogleMap>
     </Wrapper>
 

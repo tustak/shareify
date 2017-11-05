@@ -9,3 +9,11 @@ a:hover {
 .align-right {
     text-align: right;
 }
+
+.gmnoprint {
+    display: none;
+}
+
+.gm-style-cc {
+    display: none;
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import DatePicker from 'react-datepicker';
+//import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
+//import moment from 'moment';
 
 import {
     ButtonOrange,
@@ -25,6 +25,12 @@ import {
     TextAreaFormControl
 } from "../../containers/Inputs/Inputs";
 
+
+/*<DatePicker className="form-control"
+                                    selected={moment(dateOfBirth)}
+                                    onChange={this.handleChangeBirth.bind(this)}
+                                    customInput={<InputFormControl />}
+                        />*/
 
 const mapStateToProps = (state) => {
     return {
@@ -79,9 +85,7 @@ class PersonalSettings extends React.Component {
 
     render() {
         const {personal} = this.props;
-        const dateOfBirth = new Date(
-            personal.dateOfBirth
-        ).toISOString();
+
         return (
             <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -107,12 +111,8 @@ class PersonalSettings extends React.Component {
                 </div>
                 <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <FormGroup>
-                        <Label>Date of birth</Label>
-                        <DatePicker className="form-control"
-                                    selected={moment(dateOfBirth)}
-                                    onChange={this.handleChangeBirth.bind(this)}
-                                    customInput={<InputFormControl />}
-                        />
+                        <Label>Date of birth (DD-MM-YYYY)</Label>
+                        <InputFormControl onChange={this.handleChange.bind(this)} name="dateOfBirth" className="form-control" type="text" value={personal.dateOfBirth} />
                     </FormGroup>
                 </div>
                 <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">

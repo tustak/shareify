@@ -13,18 +13,19 @@ import {
 import { Map } from "../Maps/Map"
 
 const mapStateToProps = (state) => {
+    console.log(state.session.user);
     return {
-        newOffer: state.ui.forms.newOffer
+        newOffer: state.ui.forms.newOffer,
+        personal: state.session
     }
 };
 
 class NewOfferPreview extends React.Component {
 
-
-
     render() {
 
-        const {newOffer} = this.props;
+        const {newOffer, personal} = this.props;
+        console.log(personal)
         return(
             <Block>
                 <BlockTitle>
@@ -43,16 +44,18 @@ class NewOfferPreview extends React.Component {
                     <Map
                         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8zfwWQ-K9UXLe64adjv_dn8ELzk6yLdA&libraries=geometry,drawing,places"
                         loadingElement={<div></div>}
-                        containerElement={<div style={{ height: `200px`, verticalAlign:`inherit`}} />}
+                        containerElement={<div style={{ height: `300px`, verticalAlign:`inherit`}} />}
                         mapElement={<div style={{ height: `100%` }} />}
                         latitude={this.props.newOffer.places[0]? this.props.newOffer.places[0].geometry.location.lat(): 55.676372}
                         longitude={this.props.newOffer.places[0]? this.props.newOffer.places[0].geometry.location.lng(): 12.568196}
+                        radiusOfSearch={this.props.personal.radiusOfSearch * 1000}
                     />
                 </BlockTitle>
                 <BlockTitle>
                     <ButtonColor
                         color="#ff5e3a"
                         buttonHeight="40px"
+                        buttonWidth="100%"
                     >
                         Offer
                     </ButtonColor>

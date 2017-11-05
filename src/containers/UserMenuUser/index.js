@@ -61,7 +61,7 @@ class UserMenuUser extends React.Component {
         return (
             <Wrapper className="nav navbar-nav navbar-right" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <li>
-                    <Img className="user-image" src={require(`../../img/${user.picturePath}.jpg`)} alt={user.username}/>
+                    <Img className="user-image" src={require(`../../img/${this.props.user.picturePath}.jpg`)} alt={user.username}/>
                 </li>
                 <UserName>
                     <div className="user-name">
